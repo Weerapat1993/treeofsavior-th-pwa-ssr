@@ -1,0 +1,26 @@
+{
+  "short_name": "React App",
+  "name": "SSR Create React App Sample",
+  "icons": [
+    {
+      "src": "favicons/favicon.ico",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicons/favicon-512x512.ico",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#8bc349",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "gcm_sender_id": "997261072931",
+  "related_applications": [{
+    "platform": "web",
+    "url": "https://test-pwa-725f2.firebaseapp.com/"
+  }]
+}
