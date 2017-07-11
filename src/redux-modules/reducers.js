@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import { shopReducer } from './modules/shop'
+import { buildReducer } from './modules/build'
 
 export default combineReducers({
-  shop: shopReducer
+  build: buildReducer,
 })

@@ -15,14 +15,14 @@ import configureStore from './redux-modules/create'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import {green100, green500, green700} from 'material-ui/styles/colors'
+import { cyan500, cyan700, cyan100 } from 'material-ui/styles/colors'
 injectTapEventPlugin()
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: green500,
-    primary2Color: green700,
-    primary3Color: green100,
+    primary1Color: cyan500,
+    primary2Color: cyan700,
+    primary3Color: cyan100,
   },
 }, {
   avatar: {

@@ -6,7 +6,6 @@ import {
   MenuItem,
   IconButton,
   FontIcon,
-  FloatingActionButton,
   IconMenu,
   FlatButton,
 } from 'material-ui'
@@ -14,7 +13,6 @@ import {
 import { logout } from '../../utils/auth'
 
 import { fullWhite } from 'material-ui/styles/colors';
-import ContentAdd from 'material-ui/svg-icons/content/add'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 
@@ -77,13 +75,19 @@ class Layouts extends Component {
             open={this.state.open}
             onRequestChange={(open) => this.setState({open})}
           >
-            <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
-            <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
+            <MenuItem 
+              onTouchTap={this.handleClose}
+              containerElement={<Link to={'/'} />} 
+              leftIcon={<FontIcon className="material-icons">home</FontIcon>}>
+              หน้าหลัก
+            </MenuItem>
+            <MenuItem 
+              onTouchTap={this.handleClose}
+              containerElement={<Link to={'/login'} />} 
+              leftIcon={<FontIcon className="material-icons">lock</FontIcon>}>
+              เข้าสู่ระบบ
+            </MenuItem>
           </Drawer>
-          {/* Add Button */}
-          <FloatingActionButton style={{ position: 'fixed', bottom: 30, right: 25}}>
-            <ContentAdd />
-          </FloatingActionButton>
         </AppBar>
         <div style={styles.container}>
           {children}

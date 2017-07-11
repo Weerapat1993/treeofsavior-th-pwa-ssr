@@ -4,7 +4,8 @@ import { PrivateRoute, PublicRoute } from '../config/auth'
 
 import Layouts from 'components/Layouts'
 
-import Home from './Home'
+// import Home from './Home'
+import Build from './pages/build'
 import Login from './Login'
 import Register from './Register'
 import Dashboard from './Dashboard'
@@ -15,7 +16,7 @@ import Dashboard from './Dashboard'
 const Routes = ({ authed }) => (
   <Switch>
     <Layouts authed={authed} >
-      <Route path='/' exact component={Home} />
+      <Route path='/' exact component={Build} />
       <PublicRoute authed={authed} path='/login' component={Login} />
       <PublicRoute authed={authed} path='/register' component={Register} />
       <PrivateRoute authed={authed} path='/dashboard' component={Dashboard} />

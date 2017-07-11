@@ -9,10 +9,10 @@ import {
 } from 'material-ui'
 
 import ContentAdd from 'material-ui/svg-icons/content/add'
-import { globalStyles } from '../styles/styles'
+import { globalStyles } from './styles'
 
 
-class Home extends Component {
+class BuildModal extends Component {
   constructor() {
     super()
 
@@ -68,24 +68,29 @@ class Home extends Component {
       subtitle,
       description,
     }
-    console.log(data)
+    this.props.handleSubmit(data)
     this.handleClose()
   }
 
   render() {
     const { title, subtitle, description, preview } = this.state
     const actions = [
-      <FlatButton
-        label="Cancel"
-        primary={true}
-        onTouchTap={this.handleClose}
-      />,
-      <FlatButton
-        label="Submit"
-        primary={true}
-        keyboardFocused={true}
-        onTouchTap={this.handleSubmit}
-      />,
+      <div>
+        Title
+      </div>,
+      <div style={{ float: 'right' }}>
+        <FlatButton
+          label="Cancel"
+          primary={true}
+          onTouchTap={this.handleClose}
+        />
+        <FlatButton
+          label="Submit"
+          primary={true}
+          keyboardFocused={true}
+          onTouchTap={this.handleSubmit}
+        />
+      </div> 
     ];
     return (
       <span>
@@ -96,13 +101,25 @@ class Home extends Component {
         </FloatingActionButton>
         {/* Dialog */}
         <Dialog
-          title="Github Markdown"
+          title='Github Editor'
           actions={actions}
           modal={true}
           open={this.state.open}
           onRequestClose={this.handleClose}
           autoScrollBodyContent={true}
+          contentStyle={globalStyles.modalWidth}
         >
+          <div style={globalStyles.textCenter}>
+            <FlatButton 
+              icon={<FontIcon className="material-icons">edit</FontIcon>} 
+              onTouchTap={this.handleClickEditor} 
+              label="Editor" />
+            <FlatButton 
+              icon={<FontIcon className="material-icons">remove_red_eye</FontIcon>} 
+              onTouchTap={this.handleClickPreview} 
+              label="Preview" 
+              primary />
+          </div>
           <div style={globalStyles.textLeft}>
             <TextField
               hintText="Title Field"
@@ -121,18 +138,6 @@ class Home extends Component {
               fullWidth={true}
               defaultValue={subtitle}
             />
-            <br/>
-            <div style={globalStyles.textRight}>
-              <FlatButton 
-                icon={<FontIcon className="material-icons">edit</FontIcon>} 
-                onTouchTap={this.handleClickEditor} 
-                label="Editor" />
-              <FlatButton 
-                icon={<FontIcon className="material-icons">remove_red_eye</FontIcon>} 
-                onTouchTap={this.handleClickPreview} 
-                label="Preview" 
-                primary />
-            </div>
             <br/>
             {
               (preview) ? <Markdown source={description ? description : 'No description'} /> :
@@ -153,4 +158,4 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default BuildModal
